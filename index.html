@@ -5,36 +5,37 @@
   <title>HLS Video Player</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-  <div class="hlsjs">
-    <h2>HLSjs player</h2>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <video id="video" controls></video>
-    <script>
-      var video = document.getElementById('video');
-      if(Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource('Master/master.m3u8');
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED,function() {
-          video.play();
-      });
-    }
-        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = 'Master/master.m3u8';
-        video.addEventListener('loadedmetadata',function() {
-          video.play();
+  <body>
+  <div class="players">
+    <div class="hlsjs">
+      <h2>HLSjs player</h2>
+      <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+      <video id="video" controls></video>
+      <script>
+        var video = document.getElementById('video');
+        if(Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource('Master/master.m3u8');
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
         });
       }
-    </script>
-  </div>
+          else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = 'Master/master.m3u8';
+          video.addEventListener('loadedmetadata',function() {
+            video.play();
+          });
+        }
+      </script>
+    </div>
 
-  <div class="iOS">
-    <h2>Video Tag (HLS Native)</h2>
-    <video src="Master/master.m3u8" controls>iOS Native</video>
+    <div class="iOS">
+      <h2>Video Tag (HLS Native)</h2>
+      <video src="Master/master.m3u8" controls>iOS Native</video>
   </div>
-
+  </body>
+</div>
 
 </body>
 </html>

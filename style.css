@@ -17,17 +17,20 @@ body {
   align-items: center;
   justify-content: center;
 }
+.players {
+  overflow: auto;
+}
 
 h2 {
   text-align: center;
 }
 
 .hlsjs {
-  margin: auto;
-  padding: 20px;
+  position: relative;
+  top: 50%;
 }
 
 .iOS {
-  margin: auto;
-  padding: 20px;
+  position: relative;
+  top: 50%;
 }
