@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HTML Video Player</title>
+  <title>HLS Video Player</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <video id="video"></video>
+  <video id="video" controls></video>
   <script>
     var video = document.getElementById('video');
     if(Hls.isSupported()) {
